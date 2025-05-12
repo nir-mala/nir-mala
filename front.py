@@ -76,6 +76,30 @@ def data():
                     <div class="value">{data['Day']}</div>
                 </div>''', unsafe_allow_html=True)
 
+            with col2:
+                st.markdown(f'''
+                <div class="lingkaran">
+                    <div class="label">Time</div>
+                    <div class="value">{data['Time']}</div>
+                </div>''', unsafe_allow_html=True)
+                
+            with col3:
+                st.markdown(f'''
+                <div class="lingkaran">
+                    <div class="label">SOG [Knot]</div>
+                    <div class="value">{data['SOG [Knot]']}</div>
+                </div>''', unsafe_allow_html=True)
+
+            with col4:
+                st.markdown(f'''
+                <div class="lingkaran">
+                    <div class="label">SOG [Km/h]</div>
+                    <div class="value">{data['SOG [Km/h]']}</div>
+                </div>''', unsafe_allow_html=True)
+
+            col1, spacer1, col2, spacer2, col3 = st.columns([1, 0.2, 1, 0.2, 1])
+
+            with col1:
                 st.markdown(f'''
                 <div class="lingkaran">
                     <div class="label">Date</div>
@@ -85,30 +109,11 @@ def data():
             with col2:
                 st.markdown(f'''
                 <div class="lingkaran">
-                    <div class="label">Time</div>
-                    <div class="value">{data['Time']}</div>
-                </div>''', unsafe_allow_html=True)
-
-                st.markdown(f'''
-                <div class="lingkaran">
                     <div class="label">COG</div>
                     <div class="value">{data['COG']}°</div>
                 </div>''', unsafe_allow_html=True)
 
             with col3:
-                st.markdown(f'''
-                <div class="lingkaran">
-                    <div class="label">SOG [Knot]</div>
-                    <div class="value">{data['SOG [Knot]']}</div>
-                </div>''', unsafe_allow_html=True)
-
-                st.markdown(f'''
-                <div class="lingkaran">
-                    <div class="label">SOG [Km/h]</div>
-                    <div class="value">{data['SOG [Km/h]']}</div>
-                </div>''', unsafe_allow_html=True)
-
-            with col4:
                 st.markdown(f'''
                 <div class="lingkaran">
                     <div class="label">Coordinates</div>
