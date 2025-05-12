@@ -1,7 +1,7 @@
 /* Styling untuk judul */
 .title {
     font-size: 48px;
-    color: #b6c33f;
+    color: #ff5e00;
     text-align: center;
     font-weight: bold;
 }
@@ -41,7 +41,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #4CAF50; /* Warna latar belakang */
+    background-color: #ff8102d8; /* Warna latar belakang */
     color: white; /* Warna teks */
     width: 120px; /* Lebar lingkaran */
     height: 120px; /* Tinggi lingkaran */
@@ -60,9 +60,9 @@
 }
 /* Gaya untuk nilai di bawah */
 .value {
-    font-size: 16px; /* Ukuran font nilai */
+    font-size: 22px; /* Ukuran font nilai */
     font-weight: bold; /* Nilai lebih tebal */
-    color: #FFFFDD;
+    color: #1056cf;
 }
  /* trajectory label*/
 .trajectory_label {
@@ -85,7 +85,7 @@
     margin-bottom: 10px;
 }
 .image-container img {
-    max-width: 50%;
+    max-width: 85%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -133,12 +133,15 @@ header {
 
 /* Styling untuk tombol di sidebar */
 div.stButton > button:first-child {
-    background-color: #31cc9b;
-    color: #cc3131; /* Warna teks pada tombol */
-    font-weight: bold;
-    border: none; /* Menghilangkan border */
-    padding: 20px 28px; /* Ukuran padding tombol */
-    border-radius: 1000px; /* Membuat sudut tombol melengkung */
-    font-size: 16px; /* Ukuran font */
-    cursor: pointer; /* Ubah kursor menjadi pointer */
+    background-color: #60f1b5;
+    color: #ff0000; /* Warna teks pada tombol */
+    font-family: Arial, sans-serif;
+    font-weight: bold !important;
+    text-shadow: none;
+    border: none;
+    padding: 20px 28px;
+    border-radius: 1000px;
+    font-size: 20px;
+    cursor: pointer;
 }
+
