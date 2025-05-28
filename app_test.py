@@ -36,7 +36,6 @@ while True:
                 - **COG:** {latest['COG']}
                 - **SOG [Knot]:** {latest['SOG_Knot']}
                 - **SOG [Km/h]:** {latest['SOG_kmperhours']}
-                - **Yaw:** {latest['Yaw']}
                 - **Lat:** {latest['Lattitude']}
                 - **Lon:** {latest['Longitude']}
                 - **Position:** ({latest['Position_X']}, {latest['Position_Y']})
