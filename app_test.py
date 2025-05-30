@@ -10,7 +10,6 @@ HEADERS = {
     "Content-Type": "application/json"
 }
 
-# Pemuatan CSS di luar fungsi utama
 css_path = os.path.join(os.getcwd(), "styles.css")  # Path ke file CSS eksternal
 
 if os.path.exists(css_path):  # Cek apakah file CSS ada
