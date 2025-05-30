@@ -10,6 +10,9 @@ HEADERS = {
     "Content-Type": "application/json"
 }
 
+with open("style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 st.title("🚀 Real-Time Data dari Back4App")
 
 # Kontainer untuk streaming data
