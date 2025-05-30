@@ -15,34 +15,81 @@ st.title("🚀 Real-Time Data dari Back4App")
 # Kontainer untuk streaming data
 placeholder = st.empty()
 
-# Loop untuk update data setiap 1 detik
 while True:
-    # Ambil data terbaru dari Back4App
     response = requests.get(URL, headers=HEADERS, params={
-        "order": "-createdAt",  # Ambil data terbaru (sort by waktu)
-        "limit": 1              # Hanya ambil data terbaru
+        "order": "-createdAt",
+        "limit": 1
     })
 
     if response.status_code == 200:
         data = response.json().get("results", [])
         if data:
             latest = data[0]
-            placeholder.write(
-                f"""
-                ### Data Terbaru:
-                - **Time:** {latest['Time']}
-                - **Date:** {latest['Date']}
-                - **Day:** {latest['Day']}
-                - **COG:** {latest['COG']}
-                - **SOG [Knot]:** {latest['SOG_Knot']}
-                - **SOG [Km/h]:** {latest['SOG_kmperhours']}
-                - **Lat:** {latest['Latitude']}
-                - **Lon:** {latest['Longitude']}
-                - **Position:** ({latest['Position_X']}, {latest['Position_Y']})
-                """
-            )
+            with placeholder.container():
+                st.markdown('<div class="title_poltek"> POLITEKNIK NEGERI BATAM </div>', unsafe_allow_html=True)
+                st.markdown('')
+
+                c1, c2 = st.columns(2)
+
+                with c1:
+                    st.markdown('<div class="label_tujuan"> GEO-TAG INFO </div>', unsafe_allow_html=True)
+
+                with c2:
+                    st.markdown(f'''<div class="label_tujuan"> Position : ({latest['Position_X']}, {latest['Position_Y']}) </div>''', unsafe_allow_html=True)
+
+                col1, spacer1, col2, spacer2, col3, spacer3, col4 = st.columns([1, 0.2, 1, 0.2, 1, 0.2, 1])
+
+                with col1:
+                    st.markdown(f'''
+                    <div class="lingkaran">
+                        <div class="label">Day</div>
+                        <div class="value">{latest['Day']}</div>
+                    </div>''', unsafe_allow_html=True)
+
+                with col2:
+                    st.markdown(f'''
+                    <div class="lingkaran">
+                        <div class="label">Time</div>
+                        <div class="value">{latest['Time']}</div>
+                    </div>''', unsafe_allow_html=True)
+
+                with col3:
+                    st.markdown(f'''
+                    <div class="lingkaran">
+                        <div class="label">SOG [Knot]</div>
+                        <div class="value">{latest['SOG_Knot']}</div>
+                    </div>''', unsafe_allow_html=True)
+
+                with col4:
+                    st.markdown(f'''
+                    <div class="lingkaran">
+                        <div class="label">SOG [Km/h]</div>
+                        <div class="value">{latest['SOG_kmperhours']}</div>
+                    </div>''', unsafe_allow_html=True)
+
+                col1, spacer1, col2, spacer2, col3 = st.columns([1, 0.2, 1, 0.2, 1])
+
+                with col1:
+                    st.markdown(f'''
+                    <div class="lingkaran">
+                        <div class="label">Date</div>
+                        <div class="value">{latest['Date']}</div>
+                    </div>''', unsafe_allow_html=True)
+
+                with col2:
+                    st.markdown(f'''
+                    <div class="lingkaran">
+                        <div class="label">COG</div>
+                        <div class="value">{latest['COG']}°</div>
+                    </div>''', unsafe_allow_html=True)
+
+                with col3:
+                    st.markdown(f'''
+                    <div class="lingkaran">
+                        <div class="label">Coordinates</div>
+                        <div class="value">S {latest['Latitude']}° E {latest['Longitude']}°</div>
+                    </div>''', unsafe_allow_html=True)
     else:
         st.warning(f"Error: {response.status_code}")
 
-    # Tunggu 1 detik sebelum ambil data lagi
     time.sleep(1)
