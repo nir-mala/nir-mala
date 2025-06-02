@@ -94,7 +94,7 @@ def data_monitoring():
                         st.markdown(f'''
                         <div class="lingkaran">
                             <div class="label">Coordinates</div>
-                            <div class="value">S {latest['Latitude']}° E {latest['Longitude']}°</div>
+                            <div class="value">S {latest['Lattitude']}° E {latest['Longitude']}°</div>
                         </div>''', unsafe_allow_html=True)
         else:
             st.warning(f"Error: {response.status_code}")
