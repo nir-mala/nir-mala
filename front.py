@@ -13,9 +13,8 @@ API_IMAGE    = "http://127.0.0.1:5000/image"
 # Pemuatan CSS di luar fungsi utama
 css_path = os.path.join(os.getcwd(), "styles.css")  # Path ke file CSS eksternal
 
-if os.path.exists(css_path):  # Cek apakah file CSS ada
-    with open(css_path) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+with open("style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 data_placeholder = st.empty()
 map_placeholder = st.empty()
