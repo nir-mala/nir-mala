@@ -6,12 +6,8 @@ from PIL import Image
 from io import BytesIO
 import matplotlib.pyplot as plt
 
-
 API_DATA     = "http://127.0.0.1:5000/data"
 API_IMAGE    = "http://127.0.0.1:5000/image"
-
-# Pemuatan CSS di luar fungsi utama
-css_path = os.path.join(os.getcwd(), "styles.css")  # Path ke file CSS eksternal
 
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -25,34 +21,13 @@ def tampilan_awal():
     st.markdown('<div class="title"> BARELANG </div>', unsafe_allow_html=True)
     st.markdown('<div class="title"> MARINE ROBOTICS TEAM </div>', unsafe_allow_html=True)
 
-def tampil_atas():
-    response = requests.get(API_DATA)  # Mengambil data dari backend Flask
-    if response.status_code == 200:
-        position = response.json()
-        with data_placeholder.container():
-
-            st.markdown('<div class="title_poltek"> POLITEKNIK NEGERI BATAM </div>', unsafe_allow_html=True)
-            st.markdown('')
-
-            c1, c2 = st.columns(2)
-
-            with c1:
-                st.markdown('<div class="label_tujuan"> GEO-TAG INFO </div>', unsafe_allow_html=True)
-
-            with c2:
-                st.markdown(f'''<div class="label_tujuan"> Position : {position['Position']} </div>''', unsafe_allow_html=True)
-        return position['Position']
-    else:
-        st.error("Gagal mengambil data dari server!")
-        return None
-    
-
 def data():
     
     response = requests.get(API_DATA)  # Mengambil data dari backend Flask
     if response.status_code == 200:
         data = response.json()
         position = response.json()
+
         with data_placeholder.container():
 
             st.markdown('<div class="title_poltek"> POLITEKNIK NEGERI BATAM </div>', unsafe_allow_html=True)
@@ -319,7 +294,6 @@ def sidebar():
     # Cek tombol yang ditekan
     if st.session_state.get("lintasan_a_button"):
         while True:
-            tampil_atas() 
             position = data()
             trajectory_map_a(position)
             gambar()
@@ -327,7 +301,6 @@ def sidebar():
 
     elif st.session_state.get("lintasan_b_button"):
         while True:
-            tampil_atas()
             position = data()
             trajectory_map_b(position)
             gambar()
